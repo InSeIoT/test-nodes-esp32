@@ -71,7 +71,7 @@ void loop()
     sc_current_block = (sc_current_block + 1) % SAMPLES_CACHE_BLOCKS;
     sc_samples = 0;
     outputStr = "";
-    DynamicJsonDocument json(30000);
+    DynamicJsonDocument json(PACKAGE_SIZE);
     json["timeStamp"] = timeClient.getEpochMillis();
     json["event"] = "log";
     JsonObject device = json.createNestedObject("device");
@@ -96,6 +96,8 @@ void loop()
     }
     serializeJson(json, outputStr);
     publishMessage(MQTT_TOPIC, outputStr, true);
+
+    client.loop();                        // poll for MQTT messages
   }
   if (!client.connected()) reconnect(); // check if client is connected
   timeClient.update(); //Update time from NTP server

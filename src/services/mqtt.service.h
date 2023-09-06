@@ -45,7 +45,7 @@ void mqtt_setup() {
   client.setServer(MQTT_SERVER, atoi(MQTT_PORT));
   client.setCallback(callback);
   if (!client.connected()) reconnect(); 
-  client.setBufferSize(2048);
+  client.setBufferSize(PACKAGE_SIZE);
   Serial.println("MQTT Buffer Size: " + String(client.getBufferSize()));
   delay(500);
 }

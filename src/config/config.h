@@ -37,9 +37,11 @@
 /* -------------------------------------------------------------------------- */
 /*                               Sampling Cache                               */
 /* -------------------------------------------------------------------------- */
-#define SAMPLES_CACHE 20
-#define SAMPLES_TX 15
+#define SAMPLES_CACHE 50
+#define SAMPLES_TX 45
 #define SAMPLES_CACHE_BLOCKS 2
+
+#define PACKAGE_SIZE 8192
 
 /* -------------------------------------------------------------------------- */
 /*                              NTP(System Time)                              */
